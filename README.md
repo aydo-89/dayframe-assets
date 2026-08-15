@@ -1,12 +1,19 @@
 # dayframe-assets
 
-Fetch-on-demand binary model artifacts for the [Day Frame](https://github.com/aydo-89/dayframe)
-vision pipeline.
+Fetch-on-demand binary model artifacts for the Day Frame vision pipeline
+(D32 pattern: SHA-pinned release assets, never committed to the main repo's
+git history).
 
-Per Day Frame's own storage convention (decision D32, the same pattern `hub/vision/detect.py`'s
-`ensure_model()` uses for its base ONNX detector): large binaries are never committed to the
-main repo's git history. Instead they live here, as SHA-256-pinned GitHub Release assets, and
-the main repo's code fetches + verifies them on demand.
+## Licensing
 
-See each release's notes for exact provenance (source checkpoint, export command, pinned
-package versions, and the resulting artifact's checksum).
+The YOLO-World ONNX exports in these releases are derived from
+[Ultralytics](https://github.com/ultralytics/ultralytics) `yolov8s-worldv2`
+weights and are therefore distributed under the **GNU AGPL-3.0** license
+(https://www.gnu.org/licenses/agpl-3.0.html). Source model, export recipe,
+and pinned package versions are documented in the Day Frame repository's
+`hub/vision/MODEL_MANIFEST.md`. YOLO-World is by Tencent AI Lab
+(https://github.com/AILab-CVC/YOLO-World); the Ultralytics packaging used
+for this export is AGPL-3.0-or-Enterprise.
+
+No warranty. These artifacts exist solely so a private prototype can fetch
+its detector weights reproducibly.
